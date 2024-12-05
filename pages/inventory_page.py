@@ -7,6 +7,7 @@ class CartAction(Enum):
 
 class InventoryPage:
     # Product card element locators
+    CARD_PARENT_LOCATOR = "[data-test = 'inventory-list']"
     PRODUCT_CARDS = "[data-test = 'inventory-item']"
     PRODUCT_TITLES = "[data-test = 'inventory-item-name']"
     PRODUCT_DESCRIPTIONS = "[data-test = 'inventory-item-desc']"
@@ -37,11 +38,17 @@ class InventoryPage:
     def navigate_to_inventory_page(self):
         self.page.goto("https://www.saucedemo.com/inventory.html")
 
-    def get_product_cards(self):
-        return self.PRODUCT_CARDS
+    def get_product_card_count(self):
+        parent_card_list = self.page.locator(self.CARD_PARENT_LOCATOR)
+        child_cards = parent_card_list.locator(self.PRODUCT_CARDS)
+
+        return child_cards.count()
 
     def get_product_titles(self):
-        return self.page.inner_text(self.PRODUCT_TITLES)
+        product_titles = self.page.locator(self.PRODUCT_TITLES)
+
+        titles = [product_titles.nth(i).inner_text() for i in range(product_titles.count())]
+        return titles
 
     def get_product_descriptions(self):
         return self.page.inner_text(self.PRODUCT_DESCRIPTIONS)

@@ -1,4 +1,7 @@
-from pages.login_page import LoginPage
+# Functional login page tests. Runs both positive and negative tests cases along with
+# a check for locked out user.
+
+from pages import LoginPage
 from tests.conftest import user_creds
 
 
