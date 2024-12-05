@@ -2,10 +2,10 @@ from playwright.sync_api import Page
 
 
 class LoginPage:
-    USERNAME_INPUT = "[data-test= 'username']"
-    PASSWORD_INPUT = "[data-test= 'password']"
-    LOGIN_BTN = "[data-test= 'login-button']"
-    ERROR_MESSAGE = "[data-test= 'error']"
+    USERNAME_INPUT = "[data-test = 'username']"
+    PASSWORD_INPUT = "[data-test = 'password']"
+    LOGIN_BTN = "[data-test = 'login-button']"
+    ERROR_MESSAGE = "[data-test = 'error']"
 
     def __init__(self, page: Page):
         self.page = page

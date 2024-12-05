@@ -37,3 +37,14 @@ def user_creds():
         "visual_user": os.getenv('VISUAL_USER'),
         "password": os.getenv('PASSWORD')
     }
+
+@pytest.fixture
+def product_titles():
+    return {
+        "backpack": "Sauce Labs Backpack",
+        "bike_light": "Sauce Labs Bike Light",
+        "bolt_shirt": "Sauce Labs Bolt T-Shirt",
+        "jacket": "Sauce Labs Fleece Jacket",
+        "onesie": "Sauce Labs Onesie",
+        "test_shirt": "Test.allTheThings() T-Shirt (Red)"
+    }
