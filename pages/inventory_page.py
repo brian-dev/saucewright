@@ -51,7 +51,10 @@ class InventoryPage:
         return titles
 
     def get_product_descriptions(self):
-        return self.page.inner_text(self.PRODUCT_DESCRIPTIONS)
+        product_descriptions = self.page.locator(self.PRODUCT_DESCRIPTIONS)
+
+        descriptions = [product_descriptions.nth(i).inner_text() for i in range(product_descriptions.count())]
+        return descriptions
 
     def get_product_prices(self):
         return self.PRODUCT_PRICES
