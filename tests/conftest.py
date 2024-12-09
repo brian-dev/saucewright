@@ -6,7 +6,7 @@ from dotenv import load_dotenv
 @pytest.fixture(scope="session")
 def browser():
     with sync_playwright() as p:
-        browser = p.chromium.launch(headless=False)
+        browser = p.chromium.launch(headless=True)
         yield browser
         browser.close()
 
@@ -64,4 +64,15 @@ def product_descriptions():
         "two-needle hemmed sleeved and bottom won't unravel.",
         "test_shirt": "This classic Sauce Labs t-shirt is perfect to wear when cozying up to your keyboard to automate a few tests. "
         "Super-soft and comfy ringspun combed cotton."
+    }
+
+@pytest.fixture
+def product_prices():
+    return {
+        "backpack": "$29.99",
+        "bike_light": "$9.99",
+        "bolt_shirt": "$15.99",
+        "jacket": "$49.99",
+        "onesie": "$7.99",
+        "test_shirt": "$15.99"
     }

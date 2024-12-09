@@ -57,7 +57,10 @@ class InventoryPage:
         return descriptions
 
     def get_product_prices(self):
-        return self.PRODUCT_PRICES
+        product_prices = self.page.locator(self.PRODUCT_PRICES)
+
+        prices = [product_prices.nth(i).inner_text() for i in range(product_prices.count())]
+        return prices
 
     def check_title_displayed(self, product_name):
         titles = self.get_product_titles()
@@ -72,6 +75,14 @@ class InventoryPage:
         displayed = False
 
         if product_description in descriptions:
+            displayed = True
+        return displayed
+
+    def check_price_displayed(self, product_price):
+        prices = self.get_product_prices()
+        displayed = False
+
+        if product_price in prices:
             displayed = True
         return displayed
 
