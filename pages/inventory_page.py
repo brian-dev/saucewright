@@ -82,6 +82,9 @@ class InventoryPage:
             self.TEST_SHIRT_REMOVE_FROM_CART_BTN
         ]
 
+    def get_cart_badge(self):
+        return self.page.locator(self.CART_BADGE)
+
     def get_cart_badge_count(self):
         badge_count = self.page.locator(self.CART_BADGE)
         return badge_count.inner_text()
@@ -176,7 +179,15 @@ class InventoryPage:
                 else:
                     btn.click()
 
+    def click_on_item_title(self, title):
+        title_list = self.page.locator(self.PRODUCT_TITLES)
 
+        for i in range(title_list.count()):
+            item_title = title_list.nth(i)
+            if item_title.inner_text() == title:
+                item_title.click()
+                return
+        raise ValueError(f"Unable to locate item with title: {title}.")
 
     def open_menu(self):
         self.page.click(self.MENU_BTN)

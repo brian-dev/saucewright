@@ -1,7 +1,6 @@
 # UI tests for the all inventory page. Runs checks to ensure items and elements
 # are displayed on screen. All tests performed with the standard user credentials.
 import json
-
 import pytest
 import yaml
 
@@ -215,7 +214,6 @@ def test_add_to_cart_list(page, user_creds):
     inv_page.add_all_items_to_cart()
     assert inv_page.get_cart_badge_count() == "6"
 
-@pytest.mark.test
 # Validates the cart badge updates to the correct count when the item is added to the cart
 # via the add to cart button on the inventory card
 def test_add_backpack_to_cart(page, user_creds):
