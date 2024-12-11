@@ -37,3 +37,42 @@ def user_creds():
         "visual_user": os.getenv('VISUAL_USER'),
         "password": os.getenv('PASSWORD')
     }
+
+@pytest.fixture
+def product_titles():
+    return {
+        "backpack": "Sauce Labs Backpack",
+        "bike_light": "Sauce Labs Bike Light",
+        "bolt_shirt": "Sauce Labs Bolt T-Shirt",
+        "jacket": "Sauce Labs Fleece Jacket",
+        "onesie": "Sauce Labs Onesie",
+        "test_shirt": "Test.allTheThings() T-Shirt (Red)"
+    }
+
+@pytest.fixture
+def product_descriptions():
+    return {
+        "backpack": "carry.allTheThings() with the sleek, streamlined Sly Pack that melds uncompromising style with unequaled "
+        "laptop and tablet protection.",
+        "bike_light": "A red light isn't the desired state in testing but it sure helps when riding your bike at night. "
+        "Water-resistant with 3 lighting modes, 1 AAA battery included.",
+        "bolt_shirt": "Get your testing superhero on with the Sauce Labs bolt T-shirt. From American Apparel, 100% ringspun combed "
+        "cotton, heather gray with red bolt.",
+        "jacket": "It's not every day that you come across a midweight quarter-zip fleece jacket capable of handling everything "
+        "from a relaxing day outdoors to a busy day at the office.",
+        "onesie": "Rib snap infant onesie for the junior automation engineer in development. Reinforced 3-snap bottom closure, "
+        "two-needle hemmed sleeved and bottom won't unravel.",
+        "test_shirt": "This classic Sauce Labs t-shirt is perfect to wear when cozying up to your keyboard to automate a few tests. "
+        "Super-soft and comfy ringspun combed cotton."
+    }
+
+@pytest.fixture
+def product_prices():
+    return {
+        "backpack": "$29.99",
+        "bike_light": "$9.99",
+        "bolt_shirt": "$15.99",
+        "jacket": "$49.99",
+        "onesie": "$7.99",
+        "test_shirt": "$15.99"
+    }
