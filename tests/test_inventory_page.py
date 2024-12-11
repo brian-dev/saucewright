@@ -1,9 +1,11 @@
 # UI tests for the all inventory page. Runs checks to ensure items and elements
-# are displayed on screen.
+# are displayed on screen. All tests performed with the standard user credentials.
 import json
+
+import pytest
 import yaml
 
-from pages import LoginPage, InventoryPage
+from pages import LoginPage, InventoryPage, CartAction
 from tests.conftest import product_descriptions
 
 
@@ -201,3 +203,75 @@ def test_all_prices_displayed_json(page, user_creds):
     prices = prices_list['prices']
     for price in prices:
         assert price in inv_page.get_product_prices()
+
+# Validates cart badge count matches the expected count when all cart items are added to the cart by
+# iterating over the list of add to cart buttons, clicking them, then collecting the value from the
+# cart badge displayed on screen
+def test_add_to_cart_list(page, user_creds):
+    login_page = LoginPage(page)
+    inv_page = InventoryPage(page)
+
+    login_page.login(user_creds['standard_user'], user_creds['password'])
+    inv_page.add_all_items_to_cart()
+    assert inv_page.get_cart_badge_count() == "6"
+
+@pytest.mark.test
+# Validates the cart badge updates to the correct count when the item is added to the cart
+# via the add to cart button on the inventory card
+def test_add_backpack_to_cart(page, user_creds):
+    login_page = LoginPage(page)
+    inv_page = InventoryPage(page)
+
+    login_page.login(user_creds['standard_user'], user_creds['password'])
+    inv_page.modify_backpack_cart(CartAction.ADD)
+    assert inv_page.get_cart_badge_count() == "1"
+
+# Validates the cart badge updates to the correct count when the item is added to the cart
+# via the add to cart button on the inventory card
+def test_add_bike_light_to_cart(page, user_creds):
+    login_page = LoginPage(page)
+    inv_page = InventoryPage(page)
+
+    login_page.login(user_creds['standard_user'], user_creds['password'])
+    inv_page.modify_bike_light_cart(CartAction.ADD)
+    assert inv_page.get_cart_badge_count() == "1"
+
+# Validates the cart badge updates to the correct count when the item is added to the cart
+# via the add to cart button on the inventory card
+def test_add_bolt_shirt_to_cart(page, user_creds):
+    login_page = LoginPage(page)
+    inv_page = InventoryPage(page)
+
+    login_page.login(user_creds['standard_user'], user_creds['password'])
+    inv_page.modify_bolt_shirt_cart(CartAction.ADD)
+    assert inv_page.get_cart_badge_count() == "1"
+
+# Validates the cart badge updates to the correct count when the item is added to the cart
+# via the add to cart button on the inventory card
+def test_add_jacket_to_cart(page, user_creds):
+    login_page = LoginPage(page)
+    inv_page = InventoryPage(page)
+
+    login_page.login(user_creds['standard_user'], user_creds['password'])
+    inv_page.modify_jacket_cart(CartAction.ADD)
+    assert inv_page.get_cart_badge_count() == "1"
+
+# Validates the cart badge updates to the correct count when the item is added to the cart
+# via the add to cart button on the inventory card
+def test_add_onesie_to_cart(page, user_creds):
+    login_page = LoginPage(page)
+    inv_page = InventoryPage(page)
+
+    login_page.login(user_creds['standard_user'], user_creds['password'])
+    inv_page.modify_onesie_cart(CartAction.ADD)
+    assert inv_page.get_cart_badge_count() == "1"
+
+# Validates the cart badge updates to the correct count when the item is added to the cart
+# via the add to cart button on the inventory card
+def test_add_test_shirt_to_cart(page, user_creds):
+    login_page = LoginPage(page)
+    inv_page = InventoryPage(page)
+
+    login_page.login(user_creds['standard_user'], user_creds['password'])
+    inv_page.modify_test_shirt_cart(CartAction.ADD)
+    assert inv_page.get_cart_badge_count() == "1"

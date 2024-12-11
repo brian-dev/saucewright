@@ -62,6 +62,30 @@ class InventoryPage:
         prices = [product_prices.nth(i).inner_text() for i in range(product_prices.count())]
         return prices
 
+    def get_add_to_cart_buttons(self):
+        return [
+            self.BACKPACK_ADD_TO_CART_BTN,
+            self.BIKE_LIGHT_ADD_TO_CART_BTN,
+            self.BOLT_SHIRT_ADD_TO_CART_BTN,
+            self.JACKET_ADD_TO_CART_BTN,
+            self.ONESIE_ADD_TO_CART_BTN,
+            self.TEST_SHIRT_ADD_TO_CART_BTN
+        ]
+
+    def get_remove_from_cart_buttons(self):
+        return [
+            self.BACKPACK_REMOVE_FROM_CART_BTN,
+            self.BIKE_LIGHT_REMOVE_FROM_CART_BTN,
+            self.BOLT_SHIRT_REMOVE_FROM_CART_BTN,
+            self.JACKET_REMOVE_FROM_CART_BTN,
+            self.ONESIE_REMOVE_FROM_CART_BTN,
+            self.TEST_SHIRT_REMOVE_FROM_CART_BTN
+        ]
+
+    def get_cart_badge_count(self):
+        badge_count = self.page.locator(self.CART_BADGE)
+        return badge_count.inner_text()
+
     def check_title_displayed(self, product_name):
         titles = self.get_product_titles()
         displayed = False
@@ -133,6 +157,26 @@ class InventoryPage:
             self.page.click(self.TEST_SHIRT_REMOVE_FROM_CART_BTN)
         else:
             raise ValueError("Invalid action specified. Use Action.ADD or Action.REMOVE.")
+
+    def add_all_items_to_cart(self):
+        self.clear_cart()
+        add_to_cart_btns = self.get_add_to_cart_buttons()
+        for btn in add_to_cart_btns:
+            btn = self.page.locator(btn)
+            btn.click()
+
+    def clear_cart(self):
+        cart_badge = self.page.locator(self.CART_BADGE)
+        while cart_badge.count() > 0:
+            remove_from_cart_btns = self.get_remove_from_cart_buttons()
+            for btn in remove_from_cart_btns:
+                btn = self.page.locator(btn)
+                if btn.count() == 0:
+                    continue
+                else:
+                    btn.click()
+
+
 
     def open_menu(self):
         self.page.click(self.MENU_BTN)
