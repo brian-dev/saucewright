@@ -54,8 +54,8 @@ def product_descriptions():
     return {
         "backpack": "carry.allTheThings() with the sleek, streamlined Sly Pack that melds uncompromising style with unequaled "
         "laptop and tablet protection.",
-        "bike_light": "A red light isn't the desired state in testing but it sure helps when riding your bike at night. "
-        "Water-resistant with 3 lighting modes, 1 AAA battery included.",
+        "bike_light": "A red light isn't the desired state in testing but it sure helps when riding your bike at "
+                      "night. Water-resistant with 3 lighting modes, 1 AAA battery included.",
         "bolt_shirt": "Get your testing superhero on with the Sauce Labs bolt T-shirt. From American Apparel, 100% ringspun combed "
         "cotton, heather gray with red bolt.",
         "jacket": "It's not every day that you come across a midweight quarter-zip fleece jacket capable of handling everything "
