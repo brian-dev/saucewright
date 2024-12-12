@@ -1,11 +1,8 @@
 # UI Tests for the bike light product page
 import json
-
 import pytest
 import yaml
-
 from pages import LoginPage, InventoryPage, BikeLightPage
-from tests.conftest import product_titles
 
 def test_bike_light_title_hardcoded(page, user_creds):
   login_page = LoginPage(page)
