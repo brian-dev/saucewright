@@ -1,4 +1,4 @@
-# UI Tests for the backpack product page
+# UI Tests for the bolt shirt product page
 import json
 import pytest
 import yaml
