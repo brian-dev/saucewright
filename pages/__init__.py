@@ -4,6 +4,7 @@ from.backpack_page import BackpackPage
 from .bike_light_page import BikeLightPage
 from.bolt_shirt_page import BoltShirtPage
 from .jacket_page import JacketPage
+from .onesie_page import OnesiePage
 
 __all__ = [
     "LoginPage",
@@ -12,5 +13,6 @@ __all__ = [
     "BackpackPage",
     "BikeLightPage",
     "BoltShirtPage",
-    "JacketPage"
+    "JacketPage",
+    "OnesiePage"
 ]
