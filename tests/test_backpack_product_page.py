@@ -1,11 +1,8 @@
 # UI Tests for the backpack product page
 import json
-
 import pytest
 import yaml
-
 from pages import LoginPage, InventoryPage, BackpackPage
-from tests.conftest import product_titles
 
 def test_backpack_title_hardcoded(page, user_creds):
   login_page = LoginPage(page)

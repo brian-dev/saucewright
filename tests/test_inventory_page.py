@@ -3,9 +3,7 @@
 import json
 import pytest
 import yaml
-
 from pages import LoginPage, InventoryPage, CartAction
-from tests.conftest import product_descriptions
 
 
 # Validates that the expected number of product cards are displayed on screen
