@@ -46,7 +46,7 @@ def product_titles():
         "bolt_shirt": "Sauce Labs Bolt T-Shirt",
         "jacket": "Sauce Labs Fleece Jacket",
         "onesie": "Sauce Labs Onesie",
-        "test_shirt": "Test.allTheThings() T-Shirt (Red)"
+        "all_things_shirt": "Test.allTheThings() T-Shirt (Red)"
     }
 
 @pytest.fixture
@@ -62,7 +62,7 @@ def product_descriptions():
         "from a relaxing day outdoors to a busy day at the office.",
         "onesie": "Rib snap infant onesie for the junior automation engineer in development. Reinforced 3-snap bottom closure, "
         "two-needle hemmed sleeved and bottom won't unravel.",
-        "test_shirt": "This classic Sauce Labs t-shirt is perfect to wear when cozying up to your keyboard to automate a few tests. "
+        "all_things_shirt": "This classic Sauce Labs t-shirt is perfect to wear when cozying up to your keyboard to automate a few tests. "
         "Super-soft and comfy ringspun combed cotton."
     }
 
@@ -74,5 +74,5 @@ def product_prices():
         "bolt_shirt": "$15.99",
         "jacket": "$49.99",
         "onesie": "$7.99",
-        "test_shirt": "$15.99"
+        "all_things_shirt": "$15.99"
     }
